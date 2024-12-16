@@ -18,7 +18,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: 'dockerhub-creds', url: '']) {
+                    withDockerRegistry([credentialsId: 'dockerhub-creds', url: 'https://index.docker.io/v1/']) {
                         bat 'docker push my-api:latest'
                     }
                 }
