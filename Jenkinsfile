@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', 
+                git branch: 'main', 
                     url: 'https://github.com/MariamAz06/my-api.git', 
                     credentialsId: 'github-cred'
             }
