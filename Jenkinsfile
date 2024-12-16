@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                   bat 'docker build -t my-api:latest .'
+                   bat 'docker build -t mariam02/my-api:latest .'  // Ajoutez votre nom d'utilisateur DockerHub ici
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry([credentialsId: 'dockerhub-creds', url: 'https://index.docker.io/v1/']) {
-                        bat 'docker push my-api:latest'
+                        bat 'docker push mariam02/my-api:latest'  // Utilisez le bon tag avec votre nom d'utilisateur
                     }
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy Docker Container') {
             steps {
                 script {
-                    bat 'docker run -d -p 3002:3002 my-api:latest'
+                    bat 'docker run -d -p 3002:3002 mariam02/my-api:latest'  // Assurez-vous que le conteneur expose bien le port 3002
                 }
             }
         }
