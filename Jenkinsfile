@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                   bat 'docker build -t mariam02/my-api:latest .'  // Ajoutez votre nom d'utilisateur DockerHub ici
+                   bat 'docker build -t mariam02/my-api: .'  // Ajoutez votre nom d'utilisateur DockerHub ici
                 }
             }
         }
